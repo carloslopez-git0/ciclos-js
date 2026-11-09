@@ -1,0 +1,352 @@
+:root {
+  --bg: #f4f5fb;
+  --card: #ffffff;
+  --border: #e4e6f2;
+  --text: #1f2340;
+  --muted: #5b607e;
+  --soft: #f1f2fb;
+  --input: #ffffff;
+  --accent: #6366f1;
+  --accent-strong: #4f46e5;
+  --accent-soft: rgba(99, 102, 241, 0.12);
+  --grad: linear-gradient(135deg, #6366f1 0%, #8b5cf6 60%, #a855f7 100%);
+  --shadow: 0 6px 24px rgba(79, 70, 229, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1020;
+    --card: #181a30;
+    --border: #2b2e4d;
+    --text: #e8e9f6;
+    --muted: #a2a6c8;
+    --soft: #20233f;
+    --input: #12142a;
+    --accent: #818cf8;
+    --accent-strong: #a5b4fc;
+    --accent-soft: rgba(129, 140, 248, 0.16);
+    --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 920px;
+  padding: 24px 20px 56px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  margin-bottom: 24px;
+  padding: 28px 32px;
+  border-radius: 20px;
+  background: var(--grad);
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.35);
+}
+
+header h1 {
+  margin: 0 0 6px;
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  line-height: 1.2;
+}
+
+header p {
+  margin: 0;
+  opacity: 0.92;
+}
+
+header a {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+header a:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+#etiquetas {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+body > h1 {
+  margin: 8px 0 20px;
+  color: var(--accent-strong);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+}
+
+h2 {
+  margin: 0 0 12px;
+  color: var(--accent-strong);
+  font-size: 1.15rem;
+}
+
+section,
+body > form {
+  margin-bottom: 20px;
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+section p {
+  margin: 0 0 10px;
+}
+
+section p:last-child {
+  margin-bottom: 0;
+}
+
+main ul {
+  margin: 10px 0;
+  padding-left: 22px;
+}
+
+main li {
+  margin: 6px 0;
+}
+
+main li::marker {
+  color: var(--accent);
+}
+
+#enunciado {
+  border-left: 5px solid var(--accent);
+}
+
+#enunciado p {
+  color: var(--muted);
+}
+
+#enunciado li {
+  color: var(--muted);
+}
+
+code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--soft);
+  color: var(--accent-strong);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.92em;
+}
+
+a {
+  color: var(--accent-strong);
+}
+
+#seccionTaller ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#seccionTaller li {
+  margin: 0;
+}
+
+#seccionTaller a {
+  display: block;
+  height: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--soft);
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+#seccionTaller a:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+#seccionEjemplos a,
+#seccionReto a {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: var(--grad);
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+#seccionEjemplos a:hover,
+#seccionReto a:hover {
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+  transform: translateY(-2px);
+}
+
+form {
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  margin-top: 6px;
+  color: var(--text);
+  font-size: 0.93rem;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background: var(--input);
+  color: var(--text);
+  font: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+button {
+  justify-self: start;
+  margin-top: 12px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 12px;
+  background: var(--grad);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+button:hover {
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#mensaje,
+#resultadoAhorro,
+#resultadoDado {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  background: var(--accent-soft);
+}
+
+#resultadoAhorro,
+#resultadoDado {
+  margin: -8px 0 20px;
+}
+
+#resultadoAhorro:empty,
+#resultadoDado:empty {
+  display: none;
+}
+
+ul[id] {
+  margin: 10px 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+ul[id]:empty {
+  display: none;
+}
+
+ul[id] li {
+  margin: 6px 0;
+  padding: 9px 14px;
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  background: var(--soft);
+}
+
+body > ul[id] {
+  margin: -8px 0 20px;
+}
+
+#resultado p:not(#mensaje) {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+#resultado p:last-child {
+  border-bottom: none;
+}
+
+strong {
+  color: var(--accent-strong);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 14px 12px 40px;
+  }
+
+  header {
+    padding: 22px 20px;
+    border-radius: 16px;
+  }
+
+  section,
+  body > form {
+    padding: 18px 16px;
+  }
+
+  button {
+    justify-self: stretch;
+  }
+
+  #resultado p:not(#mensaje) {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  strong {
+    text-align: left;
+  }
+}

@@ -18,6 +18,5 @@ function calcularAhorro(evento) {
     acumulado += ahorro;
     meses++;
   }
-
   resultadoAhorro.textContent = "Necesitas " + meses + " meses para alcanzar la meta.";
 }

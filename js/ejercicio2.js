@@ -1,4 +1,4 @@
-// ejercicio2.js – Registro de notas de un estudiante
+// ejercicio2.js — Registro de notas de un estudiante
 
 // 1. Referencias
 let formulario = document.getElementById("formulario");
@@ -13,51 +13,51 @@ let notaMenorTexto = document.getElementById("notaMenor");
 formulario.addEventListener("submit", procesarFormulario);
 
 function procesarFormulario(evento) {
-    evento.preventDefault();
-    let suma = 0;
-    let cantidadValidas = 0;
-    let notasAltas = 0;
-    let mayor = -1;
-    let menor = 6;
-    listaNotas.innerHTML = "";
+  evento.preventDefault();
+  let suma = 0;
+  let cantidadValidas = 0;
+  let notasAltas = 0;
+  let mayor = -1;
+  let menor = 6;
+  listaNotas.innerHTML = "";
 
-    for (let i = 1; i <= 5; i++) {
-        let nota = parseFloat(document.getElementById("nota" + i).value);
-        let fila = document.createElement("li");
-        fila.textContent = "Nota " + i + ": " + nota;
+  for (let i = 1; i <= 5; i++) {
+    let nota = parseFloat(document.getElementById("nota" + i).value);
+    let fila = document.createElement("li");
+    fila.textContent = "Nota " + i + ": " + nota;
 
-        if (Number.isNaN(nota) || nota < 0 || nota > 5) {
-            fila.textContent += " (inválida)";
-        } else {
-            suma += nota;
-            cantidadValidas++;
-            if (nota >= 3) {
-                notasAltas++;
-            }
-            if (nota > mayor) {
-                mayor = nota;
-            }
-            if (nota < menor) {
-                menor = nota;
-            }
-        }
-
-        listaNotas.appendChild(fila);
+    if (Number.isNaN(nota) || nota < 0 || nota > 5) {
+      fila.textContent += " (inválida)";
+    } else {
+      suma += nota;
+      cantidadValidas++;
+      if (nota >= 3) {
+        notasAltas++;
+      }
+      if (nota > mayor) {
+        mayor = nota;
+      }
+      if (nota < menor) {
+        menor = nota;
+      }
     }
 
-    if (cantidadValidas === 0) {
-        mensaje.textContent = "No se ingresaron notas válidas.";
-        promedioTexto.textContent = "-";
-        notasAltasTexto.textContent = "-";
-        notaMayorTexto.textContent = "-";
-        notaMenorTexto.textContent = "-";
-        return;
-    }
+    listaNotas.appendChild(fila);
+  }
 
-    let promedio = suma / cantidadValidas;
-    promedioTexto.textContent = promedio.toFixed(2);
-    notasAltasTexto.textContent = notasAltas;
-    notaMayorTexto.textContent = mayor;
-    notaMenorTexto.textContent = menor;
-    mensaje.textContent = promedio >= 3 ? "Aprobó." : "Reprobó.";
+  if (cantidadValidas === 0) {
+    mensaje.textContent = "No se ingresaron notas válidas.";
+    promedioTexto.textContent = "—";
+    notasAltasTexto.textContent = "—";
+    notaMayorTexto.textContent = "—";
+    notaMenorTexto.textContent = "—";
+    return;
+  }
+
+  let promedio = suma / cantidadValidas;
+  promedioTexto.textContent = promedio.toFixed(2);
+  notasAltasTexto.textContent = notasAltas;
+  notaMayorTexto.textContent = mayor;
+  notaMenorTexto.textContent = menor;
+  mensaje.textContent = promedio >= 3 ? "Aprobó." : "Reprobó.";
 }
